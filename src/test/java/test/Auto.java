@@ -10,7 +10,14 @@ public class Auto {
 	static int cantidadCreados;
 	
 	int cantidadAsientos() {
-		return asientos.length;
+		int w = 0;
+		for (Asiento e : asientos) {
+			if (e != null) {
+				++w;
+			}
+			
+		}
+		return w;
 	}
 	
 	String verificarIntegridad() {
@@ -18,8 +25,10 @@ public class Auto {
 			return "Las piezas no son originales";
 		}
 		for (Asiento e : asientos) {
-			if (registro != e.registro) {
-				return "Las piezas no son originales";
+			if (e != null) {
+				if (registro != e.registro) {
+					return "Las piezas no son originales";
+				}
 			}
 		}
 		return "Auto original";
